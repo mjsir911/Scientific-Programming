@@ -1,5 +1,5 @@
 from sympy import symbols, simplify
-from gjgentools import print_matrix
+from gjtools import print_matrix
 
 a, b, c, d, e, f, g, h, i, j, k, m = symbols('a b c d e f g h i j k m')
 
