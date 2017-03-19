@@ -35,6 +35,7 @@ def show_inventory(inventory):
         s += '\n{0}\t{1}'.format(item, inventory[item])
     return s
 
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
