@@ -26,9 +26,6 @@ def from_memory(filename):
         matrices[i] = rows
     return matrices
 
-
-print(from_memory('matrices.dat'))
-
 def from_memory(filename):
     with open(filename, 'r') as file:
         content = file.read()
@@ -39,6 +36,3 @@ def from_memory(filename):
     matrices = [[[int(item) for item in row] for row in matrix] for matrix in matrices]
 
     return matrices
-
-
-print(from_memory('matrices.dat'))
