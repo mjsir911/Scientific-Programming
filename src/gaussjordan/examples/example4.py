@@ -1,5 +1,5 @@
+from .. import gjtools
 from fractions import Fraction
-from gjtools import print_matrix, mul_row, add_row
 
 
 m = [[Fraction(1, 1), Fraction(-2, 1), Fraction(3, 1), Fraction(9, 1)],
