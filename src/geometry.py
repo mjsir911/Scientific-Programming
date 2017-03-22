@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import random
-import collections
-import test
+from collections import Iterable
 from numbers import Number
 
 __appname__     = ""
@@ -70,7 +68,7 @@ class Vector(tuple):
     #Init
 
     def __new__(cls, *items):
-        if len(items) == 1 and isinstance(items[0], collections.Iterable):
+        if len(items) == 1 and isinstance(items[0], Iterable):
             items = items[0]
         self = super().__new__(cls, items)
         #x = lambda f, s, v: [f(v) for s, v in zip(s, v)]
@@ -171,7 +169,7 @@ class Matrix(list):
     """
 
     def __init__(self, *vectors):
-        if len(vectors) == 1 and isinstance(vectors[0], collections.Iterable):
+        if len(vectors) == 1 and isinstance(vectors[0], Iterable):
             vectors = vectors[0]
         super().__init__(vectors)
         if not all(isinstance(x, Vector) for x in self):
@@ -216,7 +214,7 @@ class Space(dict):
 
     def confcoord(func):
         def wrapper(self, coordinate, *args, **kwargs):
-            assert isinstance(coordinate, collections.Iterable)
+            assert isinstance(coordinate, Iterable)
             assert len(coordinate) == self.dimensions, coordinate
             return func(self, coordinate, *args, **kwargs)
         return wrapper
