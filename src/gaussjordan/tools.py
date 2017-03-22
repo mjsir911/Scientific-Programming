@@ -8,9 +8,9 @@ from .. import geometry
 from ..matrices import dat2list
 
 __appname__     = ""
-__author__      = "Marco Sirabella"
+__author__      = "Jeffrey Elkner"
 __copyright__   = ""
-__credits__     = ["Marco Sirabella"]  # Authors and bug reporters
+__credits__     = ["Jeffrey Elkner", "Marco Sirabella"]  # Authors and bug reporters
 __license__     = "GPL"
 __version__     = "1.0"
 __maintainers__ = "Marco Sirabella"
@@ -56,10 +56,23 @@ class Reduced_Echelon(geometry.Matrix):
         self.sub(c, a, self[c, a])
 
 
+    def mul(self, Ri, k):
+        """
+        deprecated
+        """
+        self[Ri] *= k
+
     def div(self, Ri, k):
         self[Ri] *= 1 / k
         #something something fractions
         #self[Ri] *= F = Fraction(1, m[0][0])
+
+    def add(self, Ri, Rj, k):
+        """
+        deprecated
+        """
+        self[Ri] += k * self[Rj]
+
 
     def sub(self, Ri, Rj, k):
         #self.mul(Rj, k)
