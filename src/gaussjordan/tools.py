@@ -1,4 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import sys
+sys.path.append('../vectors')
+
 from fractions import Fraction
+import vectors
+import dat2list
+
+__appname__     = ""
+__author__      = "Marco Sirabella"
+__copyright__   = ""
+__credits__     = ["Marco Sirabella"]  # Authors and bug reporters
+__license__     = "GPL"
+__version__     = "1.0"
+__maintainers__ = "Marco Sirabella"
+__email__       = "msirabel@gmail.com"
+__status__      = "Prototype"  # "Prototype", "Development" or "Production"
+__module__      = ""
 
 def print_matrix(m):
     for row in m:
@@ -6,19 +25,52 @@ def print_matrix(m):
     print()
 
 
-def mul_row(m, k, ri):
-    for i in range(len(m[ri-1])):
-        m[ri-1][i] *= k 
-
-
-def add_row(m, k, ri, rj):
-    for i in range(len(m[ri-1])):
-        m[rj-1][i] += k * m[ri-1][i]
-
-
-def reduced_row_echelon(m):
+class Reduced_Echelon(vectors.Matrix):
     """Transform matrix m into reduced row echelon form"""
-    # Multiply the first row by the multiplicative inverse of the first element
-    recip = Fraction(1, m[0][0])
-    for i in range(len(m[0])):
-        m[0][i] *= recip
+    def __init__(self, *args):
+        super().__init__(*args)
+
+        self.div(0,    self[0, 0])
+        self.sub(1, 0, self[1, 0])
+        self.sub(2, 0, self[2, 0])
+
+        self.div(1,    self[1, 1])
+        self.sub(2, 1, self[2, 1])
+        self.sub(0, 1, self[0, 1])
+
+        self.div(2,    self[2, 2])
+        self.sub(0, 2, self[0, 2])
+        self.sub(1, 2, self[1, 2])
+
+        self.sub(0, 2, self[0, 2])
+        self.sub(0, 1, self[0, 1])
+
+    def ha(self, row):
+        # Multiply the row row by the multiplicative inverse of the first element
+        self.div(0,    self[0, row])
+        self.sub(1, 0, self[1, row])
+        self.sub(2, 0, self[2, row])
+
+
+    def div(self, Ri, k):
+        self[Ri] *= 1 / k
+        #something something fractions
+        #self[Ri] *= F = Fraction(1, m[0][0])
+
+    def sub(self, Ri, Rj, k):
+        #self.mul(Rj, k)
+        #self[Ri] += self[Rj]
+        #self.mul(Rj, 1/k)
+        self[Ri] -= k * self[Rj]
+
+matrix = Reduced_Echelon(
+        vectors.Vector(1, -2, 3, 9),
+        vectors.Vector(-1, 3, 0, -4),
+        vectors.Vector(2, -5, 5, 17),
+        )
+
+#print(matrix)
+matrices = dat2list.from_memory('matrices.dat')
+for matrix in matrices:
+    #print(matrix)
+    print(Reduced_Echelon(matrix))
