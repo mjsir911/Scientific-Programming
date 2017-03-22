@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('../vectors')
+sys.path.append('../')
 sys.path.append('../matrices')
 
 from fractions import Fraction
-import vectors
+import geometry
 import dat2list
 
 __appname__     = ""
@@ -26,13 +26,13 @@ def print_matrix(m):
     print()
 
 
-class Reduced_Echelon(vectors.Matrix):
+class Reduced_Echelon(geometry.Matrix):
     """
     Transform matrix m into reduced row echelon form
       >>> matrix = Reduced_Echelon(
-      ...         vectors.Vector(1, -2, 3, 9),
-      ...         vectors.Vector(-1, 3, 0, -4),
-      ...         vectors.Vector(2, -5, 5, 17),
+      ...         geometry.Vector(1, -2, 3, 9),
+      ...         geometry.Vector(-1, 3, 0, -4),
+      ...         geometry.Vector(2, -5, 5, 17),
       ...         )
 
       >>> print(matrix)
