@@ -106,3 +106,9 @@ def synfunc(list):
         list.append(func)
         del func
     return funcwrapper
+
+def name2conts(func):
+    def wrapper(fname):
+        with open(fname, 'r') as file:
+            return func(file.read())
+    return wrapper

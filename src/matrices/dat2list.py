@@ -3,7 +3,7 @@
 
 import sys
 sys.path.append('../')
-from misc import *
+from misc import synfunc. name2conts
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
@@ -19,9 +19,8 @@ __module__      = ""
 from_memories = []
 
 @synfunc(from_memories)
-def from_memory(filename):
-    with open(filename, 'r') as file:
-        contents = file.read()
+@name2conts
+def from_memory(contents):
     matrices = contents.split('##')
     for i, matrix in enumerate(matrices):
         rows = matrix.strip().split('\n')
@@ -34,9 +33,8 @@ def from_memory(filename):
     return matrices
 
 @synfunc(from_memories)
-def from_memory(filename):
-    with open(filename, 'r') as file:
-        content = file.read()
+@name2conts
+def from_memory(contents):
     matrices = content.split("##")
     matrices = [item.strip() for item in matrices]
     matrices = [item.split("\n") for item in matrices]
