@@ -98,3 +98,11 @@ class Math():
 @Math(lambda op, s, other: op(s, other*4), methods=('add', 'sub'))
 class Test(int):
     pass
+
+
+
+def synfunc(list):
+    def funcwrapper(func):
+        list.append(func)
+        del func
+    return funcwrapper

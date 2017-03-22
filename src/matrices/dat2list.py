@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import sys
+sys.path.append('../')
+from misc import *
+
 __appname__     = ""
 __author__      = "Marco Sirabella"
 __copyright__   = ""
@@ -12,6 +16,9 @@ __email__       = "msirabel@gmail.com"
 __status__      = "Prototype"  # "Prototype", "Development" or "Production"
 __module__      = ""
 
+from_memories = []
+
+@synfunc(from_memories)
 def from_memory(filename):
     with open(filename, 'r') as file:
         contents = file.read()
@@ -26,6 +33,7 @@ def from_memory(filename):
         matrices[i] = rows
     return matrices
 
+@synfunc(from_memories)
 def from_memory(filename):
     with open(filename, 'r') as file:
         content = file.read()
@@ -36,3 +44,5 @@ def from_memory(filename):
     matrices = [[[int(item) for item in row] for row in matrix] for matrix in matrices]
 
     return matrices
+
+from_memory = from_memories[0]
