@@ -3,7 +3,7 @@
 
 import sys
 sys.path.append('../')
-from misc import synfunc. name2conts
+from misc import synfunc, name2conts
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
