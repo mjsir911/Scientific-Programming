@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('../')
-sys.path.append('../matrices')
 
 from fractions import Fraction
-import geometry
-import dat2list
+from .. import geometry
+from ..matrices import dat2list
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
