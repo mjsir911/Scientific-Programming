@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import misc
-from . import geometry
-from . import matrices
 from . import gaussjordan
+from . import matrices
+__all__ = ['misc', 'geometry', 'matrices', 'gaussjordan']
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
