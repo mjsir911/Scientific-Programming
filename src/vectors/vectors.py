@@ -149,29 +149,46 @@ class Matrix(list):
 
     >>> print(z)
     Matrix((1, 2, 3), (4, 5, 6), (7, 8, 9))
+    >>> y = z[1]
+    >>> y
+    Vector(4, 5, 6)
+    >>> z[1] = Vector(10, 11, 12)
+    >>> z[1]
+    Vector(10, 11, 12)
+    >>> z[1, 1]
+    11
+    >>> z[1, 1] = 5
+    >>> z[1, 1]
+    5
+    >>> print(z)
+    Matrix((1, 2, 3), (10, 5, 12), (7, 8, 9))
 
+
+
+    >>> a = Matrix(([3, -2, 5, 31], [1, 3, -3, -12], [-2, -5, 3, 11]))
+    >>> print(a)
+    Matrix((3, -2, 5, 31), (1, 3, -3, -12), (-2, -5, 3, 11))
     """
 
     def __init__(self, *vectors):
         if len(vectors) == 1 and isinstance(vectors[0], collections.Iterable):
             vectors = vectors[0]
         super().__init__(vectors)
-        assert all(isinstance(x, Vector) for x in self)
-        self._dimension = len(self)
+        if not all(isinstance(x, Vector) for x in self):
+            for i, vector in enumerate(self):
+                self[i] = Vector(vector)
 
     def __repr__(self):
         return "Matrix" + str(tuple(tuple(v) for v in self))
 
     def __setitem__(self, index, value):
-        super().__setitem__(index, value)
-
-    def __getitem__(self, index):
         if isinstance(index, tuple):
-            obj = self
-            for i in index:
-                obj = obj[i]
-            return obj
-        return super().__getitem__(index)
+            row = list(self[index[0]])
+            row[index[1]] = value
+            self[index[0]] = Vector(row)
+        else:
+            return super().__setitem__(index, value)
+
     def __getitem__(self, index):
         if isinstance(index, tuple):
             obj = self
@@ -184,7 +201,7 @@ Void = None
 
 class Space(dict):
     """
-    >>> time = Space()
+    >>> time = Space(2)
     >>> type(time)
     <class '....Space'>
     >>> time[1, 2]
