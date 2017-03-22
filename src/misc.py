@@ -4,6 +4,7 @@
 import time
 import math
 import collections
+from functools import wraps
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
@@ -108,6 +109,7 @@ def synfunc(list):
     return funcwrapper
 
 def name2conts(func):
+    @wraps(func)
     def wrapper(fname):
         with open(fname, 'r') as file:
             return func(file.read())
