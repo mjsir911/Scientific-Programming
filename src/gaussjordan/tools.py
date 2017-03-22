@@ -3,6 +3,7 @@
 
 import sys
 sys.path.append('../vectors')
+sys.path.append('../matrices')
 
 from fractions import Fraction
 import vectors
@@ -26,30 +27,35 @@ def print_matrix(m):
 
 
 class Reduced_Echelon(vectors.Matrix):
-    """Transform matrix m into reduced row echelon form"""
+    """
+    Transform matrix m into reduced row echelon form
+      >>> matrix = Reduced_Echelon(
+      ...         vectors.Vector(1, -2, 3, 9),
+      ...         vectors.Vector(-1, 3, 0, -4),
+      ...         vectors.Vector(2, -5, 5, 17),
+      ...         )
+
+      >>> print(matrix)
+    """
     def __init__(self, *args):
         super().__init__(*args)
 
-        self.div(0,    self[0, 0])
-        self.sub(1, 0, self[1, 0])
-        self.sub(2, 0, self[2, 0])
+        for row in range(len(self)):
+            self.one(row)
 
-        self.div(1,    self[1, 1])
-        self.sub(2, 1, self[2, 1])
-        self.sub(0, 1, self[0, 1])
+        #um, why dont I need this?
+        #self.sub(0, 2, self[0, 2])
+        #self.sub(0, 1, self[0, 1])
 
-        self.div(2,    self[2, 2])
-        self.sub(0, 2, self[0, 2])
-        self.sub(1, 2, self[1, 2])
-
-        self.sub(0, 2, self[0, 2])
-        self.sub(0, 1, self[0, 1])
-
-    def ha(self, row):
-        # Multiply the row row by the multiplicative inverse of the first element
-        self.div(0,    self[0, row])
-        self.sub(1, 0, self[1, row])
-        self.sub(2, 0, self[2, row])
+    def one(self, row):
+        a = row
+        b = (row + 1) % 3
+        c = (row + 2) % 3
+        # Multiply the row <row> by the multiplicative inverse of the <row>th element
+        self.div(a,    self[a, a])
+        #Zero the other two rows on column <row>
+        self.sub(b, a, self[b, a])
+        self.sub(c, a, self[c, a])
 
 
     def div(self, Ri, k):
@@ -62,15 +68,3 @@ class Reduced_Echelon(vectors.Matrix):
         #self[Ri] += self[Rj]
         #self.mul(Rj, 1/k)
         self[Ri] -= k * self[Rj]
-
-matrix = Reduced_Echelon(
-        vectors.Vector(1, -2, 3, 9),
-        vectors.Vector(-1, 3, 0, -4),
-        vectors.Vector(2, -5, 5, 17),
-        )
-
-#print(matrix)
-matrices = dat2list.from_memory('matrices.dat')
-for matrix in matrices:
-    #print(matrix)
-    print(Reduced_Echelon(matrix))
