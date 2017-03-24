@@ -20,6 +20,11 @@ from_memories = []
 @synfunc(from_memories)
 @name2conts
 def from_memory(contents):
+    """
+      >>> import os
+      >>> filename = os.path.dirname(__file__) + '/matrices.dat'
+    """
+
     matrices = contents.split('##')
     for i, matrix in enumerate(matrices):
         rows = matrix.strip().split('\n')
