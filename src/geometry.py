@@ -195,8 +195,6 @@ class Matrix(list):
             return obj
         return super().__getitem__(index)
 
-Void = None
-
 class Space(dict):
     """
     >>> time = Space(2)
@@ -208,12 +206,15 @@ class Space(dict):
     Spaaaaaaaaaace
     """
 
-    def __init__(self, dimensions):
+    def __init__(self, dimensions, void=None):
         self.dimensions = dimensions
+        self.void = void
         super().__init__()
 
     def confcoord(func):
         def wrapper(self, coordinate, *args, **kwargs):
+            if self.dimensions == 1:
+                coordinate = (coordinate,)
             assert isinstance(coordinate, Iterable)
             assert len(coordinate) == self.dimensions, coordinate
             return func(self, coordinate, *args, **kwargs)
@@ -221,7 +222,7 @@ class Space(dict):
 
     @confcoord
     def __getitem__(self, coordinate):
-        return super().get(coordinate, Void)
+        return super().get(coordinate, self.void)
 
     @confcoord
     def __setitem__(self, coord, value):
