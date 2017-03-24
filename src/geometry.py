@@ -62,7 +62,28 @@ def math(cls, sup, func):
     cls.__radd__ = lambda s, v: cls(sup.__radd__(s, v))
 
 class Vector(tuple):
-    """Vector"""
+    """
+    Vector
+      >>> pos1 = Vector(1, 1)
+      >>> pos1
+      Vector(1, 1)
+      >>> neg1 = Vector(-1, -1)
+      >>> neg1
+      Vector(-1, -1)
+      >>> print(neg1)
+      (-1, -1)
+      >>> zero = neg1 + pos1
+      >>> print(zero)
+      (0, 0)
+      >>> zero < pos1
+      True
+      >>> zero > neg1
+      True
+      >>> pos2 = Vector(1, 0)
+      >>> pos3 = Vector(0, 1)
+      >>> pos1 > pos2
+      True
+    """
 
 
     #Init
@@ -80,11 +101,13 @@ class Vector(tuple):
         self._dimension = len(self)
 
 
-    #Formatting
+    """ Type conversions """
 
     def __repr__(self):
         return "Vector" + super().__repr__()
 
+    def __str__(self):
+        return '({})'.format(', '.join(map(str, self)))
 
     #Iterability
 
@@ -139,33 +162,37 @@ class Vector(tuple):
 class Matrix(list):
     """
 
-    >>> z = Matrix(
-    ...    Vector(1, 2, 3),
-    ...    Vector(4, 5, 6),
-    ...    Vector(7, 8, 9),
-    ... )
+      >>> z = Matrix(
+      ...    Vector(1, 2, 3),
+      ...    Vector(4, 5, 6),
+      ...    Vector(7, 8, 9),
+      ... )
 
-    >>> print(z)
-    Matrix((1, 2, 3), (4, 5, 6), (7, 8, 9))
-    >>> y = z[1]
-    >>> y
-    Vector(4, 5, 6)
-    >>> z[1] = Vector(10, 11, 12)
-    >>> z[1]
-    Vector(10, 11, 12)
-    >>> z[1, 1]
-    11
-    >>> z[1, 1] = 5
-    >>> z[1, 1]
-    5
-    >>> print(z)
-    Matrix((1, 2, 3), (10, 5, 12), (7, 8, 9))
+      >>> print(z)
+      (1, 2, 3)
+      (4, 5, 6)
+      (7, 8, 9)
+      >>> y = z[1]
+      >>> y
+      Vector(4, 5, 6)
+      >>> z[1] = Vector(10, 11, 12)
+      >>> z[1]
+      Vector(10, 11, 12)
+      >>> z[1, 1]
+      11
+      >>> z[1, 1] = 5
+      >>> z[1, 1]
+      5
+      >>> print(z)
+      (1, 2, 3)
+      (10, 5, 12)
+      (7, 8, 9)
 
-
-
-    >>> a = Matrix(([3, -2, 5, 31], [1, 3, -3, -12], [-2, -5, 3, 11]))
-    >>> print(a)
-    Matrix((3, -2, 5, 31), (1, 3, -3, -12), (-2, -5, 3, 11))
+      >>> a = Matrix(([3, -2, 5, 31], [1, 3, -3, -12], [-2, -5, 3, 11]))
+      >>> print(a)
+      (3, -2, 5, 31)
+      (1, 3, -3, -12)
+      (-2, -5, 3, 11)
     """
 
     def __init__(self, *vectors):
@@ -176,8 +203,12 @@ class Matrix(list):
             for i, vector in enumerate(self):
                 self[i] = Vector(vector)
 
+    """ Type conversions """
     def __repr__(self):
         return "Matrix" + str(tuple(tuple(v) for v in self))
+
+    def __str__(self):
+        return '\n'.join(map(str, self))
 
     def __setitem__(self, index, value):
         if isinstance(index, tuple):
@@ -197,13 +228,23 @@ class Matrix(list):
 
 class Space(dict):
     """
-    >>> time = Space(2)
-    >>> type(time)
-    <class '....Space'>
-    >>> time[1, 2]
-    >>> time[10000, 54321] = "Spaaaaaaaaaace"
-    >>> print(time[10000, 54321])
-    Spaaaaaaaaaace
+      >>> time = Space(2)
+      >>> type(time)
+      <class '....Space'>
+      >>> time[1, 2]
+      >>> time[10000, 54321] = "Spaaaaaaaaaace"
+      >>> print(time[10000, 54321])
+      Spaaaaaaaaaace
+
+      >>> num_line = Space(1, 0)
+      >>> num_line[0] = 3
+      >>> num_line[1]
+      0
+      >>> num_line[0]
+      3
+      >>> num_line[-500] = 8
+      >>> num_line[-500]
+      8
     """
 
     def __init__(self, dimensions, void=None):
@@ -230,4 +271,4 @@ class Space(dict):
 
 if __name__ == '__main__':
     import doctest
-    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
+    doctest.testmod(verbose=False, optionflags=doctest.ELLIPSIS)
