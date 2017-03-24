@@ -34,6 +34,9 @@ class Reduced_Echelon(geometry.Matrix):
       ...         )
 
       >>> print(matrix)
+      (1.0, 0.0, 0.0, 1.0)
+      (0.0, 1.0, 0.0, -1.0)
+      (0.0, 0.0, 1.0, 2.0)
     """
     def __init__(self, *args):
         super().__init__(*args)
@@ -42,14 +45,13 @@ class Reduced_Echelon(geometry.Matrix):
             self.one(row)
 
     def one(self, row):
-        a = row
-        b = (row + 1) % 3
-        c = (row + 2) % 3
+        row_amount = len(self)
         # Multiply the row <row> by the multiplicative inverse of the <row>th element
-        self.div(a,    self[a, a])
-        #Zero the other two rows on column <row>
-        self.sub(b, a, self[b, a])
-        self.sub(c, a, self[c, a])
+        self.div(row, self[row, row])
+        #Zero the other <row_amount> rows on column <row>
+        for index in range(1, row_amount):
+            row_offset = (row + index) % row_amount
+            self.sub(row_offset, row, self[row_offset, row])
 
 
     def mul(self, Ri, k):
