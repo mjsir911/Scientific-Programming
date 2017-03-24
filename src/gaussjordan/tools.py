@@ -10,7 +10,7 @@ from ..matrices import dat2list
 __appname__     = ""
 __author__      = "Jeffrey Elkner"
 __copyright__   = ""
-__credits__     = ["Jeffrey Elkner", "Marco Sirabella"]  # Authors and bug reporters
+__credits__     = ["Jeffrey Elkner", "Marco Sirabella", "Ali Abbas"]  # Authors and bug reporters
 __license__     = "GPL"
 __version__     = "1.0"
 __maintainers__ = "Marco Sirabella"
@@ -40,10 +40,6 @@ class Reduced_Echelon(geometry.Matrix):
 
         for row in range(len(self)):
             self.one(row)
-
-        #um, why dont I need this?
-        #self.sub(0, 2, self[0, 2])
-        #self.sub(0, 1, self[0, 1])
 
     def one(self, row):
         a = row
