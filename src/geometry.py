@@ -3,6 +3,7 @@
 
 from collections import Iterable
 from numbers import Number
+import math
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
@@ -53,6 +54,7 @@ def scalar_mult(s, v):
     return list(s * Vector(v))
 
 
+"""
 def math(cls, sup, func):
     def add(self, value):
         #return cls(sup.__add__(self, value))
@@ -60,6 +62,7 @@ def math(cls, sup, func):
         return cls(func(sup.__add__, self, value))
     cls.__add__ = add
     cls.__radd__ = lambda s, v: cls(sup.__radd__(s, v))
+"""
 
 class Vector(tuple):
     """
@@ -268,6 +271,10 @@ class Space(dict):
     @confcoord
     def __setitem__(self, coord, value):
         super().__setitem__(coord, value)
+
+    def __len__(self):
+        return int(1e6)
+        """return math.inf"""
 
 if __name__ == '__main__':
     import doctest
