@@ -55,75 +55,31 @@ matrix
 ### Dictionaries
 This module is simply a review on dictionaries.
 
+## Setting up
 ### Prerequisities
+Built in python, so [python3](www.python.org)
 
-What things you need to install the software and how to install them
+### Running the tests
+Testing is currently in development, but singular files do have doctests so if
+you want to test anything just run
 
-```
-Give examples
-```
+    python3 -m doctest <file>.py
 
-### Installing
+and that will run the tests inside a specific file
 
-A step by step series of examples that tell you have to get a development env running
-
-Stay what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 * ViM - Test editor
-* Maven - Maybe
-* Atom - ergaerga
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available,
+see the [tags on this repository](Scientific-Programming/tags). 
 
 ## Authors
 
 * **Marco Sirabella** - *Initial work* - [mjsir911](https://github.com/mjsir911)
-
-See also the list of [contributors](https://github.com/mjsir911/project/docs/contributors) who participated in this project.
 
 ## License
 
@@ -131,7 +87,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
+* [Jeff Elkner](https://github.com/jelkner) for helping me refine my python skills
