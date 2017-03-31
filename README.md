@@ -1,9 +1,17 @@
-# Project Title
+# Scientific Programming
 
-One Paragraph of project description goes here
+A scientific programming course learning the concepts of python--
+integrated with pre-calculus 
 
-## Getting Started
+## What is this?
 
+This project is developed on parallel to a 
+[repository](https://github.com/jelkner/ScientificProgramming) maintained and
+developed by my teacher, [Jeff Elkner](https://github.com/jelkner).
+
+This module is composed of three parts, all found in the src directory:
+
+### 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisities
