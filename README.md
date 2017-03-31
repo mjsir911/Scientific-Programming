@@ -70,7 +70,7 @@ and that will run the tests inside a specific file
 
 ## Built With
 
-* ViM - Test editor
+* ViM - Text editor
 
 ## Versioning
 
