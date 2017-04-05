@@ -57,7 +57,9 @@ matrix
 
 ### Dictionaries This module is simply a review on dictionaries.
 
-## Setting up ### Prerequisities Built in python, so [python3](www.python.org)
+## Setting up 
+
+### Prerequisities Built in python, so [python3](www.python.org)
 
 ### Running the tests Testing is currently in development, but singular files
 do have doctests so if you want to test anything just run
