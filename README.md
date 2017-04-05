@@ -56,7 +56,8 @@ matrix
 
 ### Dictionaries
 
-This module is simply a review on dictionaries.
+[This module]({{site.codeurl}}/src/dictionaries}}) is simply a review on
+dictionaries.
 
 ### Electricity
 
