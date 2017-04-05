@@ -60,7 +60,7 @@ matrix
 
 ### Prerequisities
 
-Built in python, so [python3](www.python.org)
+Built in python, so [python3](https://www.python.org)
 
 ### Running the tests
 
