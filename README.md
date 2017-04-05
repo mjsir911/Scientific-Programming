@@ -13,7 +13,8 @@ This module is composed of four parts, all found in the src directory:
 
 ### Geometry
 
-The [geometry.py](https://github.com/mjsir911/Scientific-Programming/src/geometry.py) module
+The [geometry.py](
+https://github.com/mjsir911/Scientific-Programming/src/geometry.py) module
 consists of various spacial objects & methods to help with more complex topics.
 
 This module experiments with classes to a heavy extent, including features such
