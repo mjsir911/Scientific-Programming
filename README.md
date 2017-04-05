@@ -13,7 +13,7 @@ This module is composed of four parts, all found in the src directory:
 
 ### Geometry
 
-The [geometry.py]( {{site.codeurl}}/src/geometry.py) module consists of various
+The [geometry.py]({{site.codeurl}}/src/geometry.py) module consists of various
 spacial objects & methods to help with more complex topics.
 
 This module experiments with classes to a heavy extent, including features such
@@ -21,7 +21,7 @@ as object inheritance and overloading object creation.
 
 ### Gaussian Jordan
 
-The [gaussjordan]( {{site.codeurl}}/src/gaussjordan) module consists of a few
+The [gaussjordan]({{site.codeurl}}/src/gaussjordan) module consists of a few
 files.
 
 [tools.py]({{site.codeurl}}/src/gaussjordan/tools.py) has some methods and an
@@ -46,7 +46,7 @@ The rules for the matrices dat files are as follows:
 0. The lines of a matrix are separated by a newline `\n`
 0. Columns of a row are delimited by semicolons `;`
 
-[dat2lit.py]( {{site.codeurl}}/src/matrices/unaugmented.dat) contains two
+[dat2lit.py]({{site.codeurl}}/src/matrices/unaugmented.dat) contains two
 functions that do the exact same thing, currently undergoing efficiency tests
 and trying to find out which one is preferable. Both functions load a `.dat`
 file in the format previously mentioned and return a list of matrix objects.
@@ -54,7 +54,14 @@ file in the format previously mentioned and return a list of matrix objects.
 The ops.py file simply showcases the valid operations that can be done on a
 matrix
 
-### Dictionaries This module is simply a review on dictionaries.
+### Dictionaries
+
+This module is simply a review on dictionaries.
+
+### Electricity
+
+The [electricity]({{site.codeurl}}/src/electricity}}) module is a work in
+progress at the moment. It
 
 ## Setting up 
 
