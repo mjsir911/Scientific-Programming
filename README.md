@@ -36,7 +36,7 @@ mathematical procedures done on matrices.
 ### Matrices
 
 The 
-[matrices](../blob/stable/src/matrices)
+[matrices]({{site.baseurl}}/src/matrices)
 module is mainly focussed around opening and converting a non-pythonic file to
 a python object(in this case a matrix object).
 
