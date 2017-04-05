@@ -11,14 +11,17 @@ developed by my teacher, [Jeff Elkner](https://github.com/jelkner).
 
 This module is composed of four parts, all found in the src directory:
 
-### Geometry The [geometry.py](
-https://github.com/mjsir911/Scientific-Programming/src/geometry.py) module
+### Geometry
+
+The [geometry.py](https://github.com/mjsir911/Scientific-Programming/src/geometry.py) module
 consists of various spacial objects & methods to help with more complex topics.
 
 This module experiments with classes to a heavy extent, including features such
 as object inheritance and overloading object creation.
 
-### Gaussian Jordan The [gaussjordan](
+### Gaussian Jordan
+
+The [gaussjordan](
 https://github.com/mjsir911/Scientific-Programming/src/gaussjordan) module
 consists of a few files.
 
@@ -29,7 +32,9 @@ echelon form using Gaussian elimination. This object heavily relies on the
 geometry module since it uses Vector and Matrix objects to simplify complex
 mathematical procedures done on matrices.
 
-### Matrices The
+### Matrices
+
+The 
 [matrices](https://github.com/mjsir911/Scientific-Programming/src/matrices)
 module is mainly focussed around opening and converting a non-pythonic file to
 a python object(in this case a matrix object).
@@ -59,9 +64,13 @@ matrix
 
 ## Setting up 
 
-### Prerequisities Built in python, so [python3](www.python.org)
+### Prerequisities
 
-### Running the tests Testing is currently in development, but singular files
+Built in python, so [python3](www.python.org)
+
+### Running the tests
+
+Testing is currently in development, but singular files
 do have doctests so if you want to test anything just run
 
     python3 -m doctest <file>.py
