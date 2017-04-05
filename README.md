@@ -62,7 +62,11 @@ dictionaries.
 ### Electricity
 
 The [electricity]({{site.codeurl}}/src/electricity}}) module is a work in
-progress at the moment. It
+progress at the moment. It currently contains code to calculate simple aspects
+of electricity such as current and resistance for resistors in parallel and
+series [circuits]({{site.codeurl}}/src/electricity/circuits.py}}). Eventually
+it will transition over to circuit simulation, having wire objects connecting
+between electrical objects.
 
 ## Setting up 
 
