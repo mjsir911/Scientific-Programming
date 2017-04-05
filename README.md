@@ -36,9 +36,12 @@ mathematical procedures done on matrices.
 ### Matrices
 
 The 
-[matrices]({{site.baseurl}}/src/matrices)
+[matrices]({{site.codeurl}}/src/matrices)
 module is mainly focussed around opening and converting a non-pythonic file to
 a python object(in this case a matrix object).
+
+#Test
+this {{site.baseurl}} is a test
 
 It includes a file that is setup as a layout, [unaugmented.dat](
 https://github.com/mjsir911/Scientific-Programming/src/matrices/unaugmented.dat),
