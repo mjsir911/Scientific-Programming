@@ -35,8 +35,9 @@ module is mainly focussed around opening and converting a non-pythonic file to
 a python object(in this case a matrix object).
 
 It includes a file that is setup as a layout, [unaugmented.dat](
-https://github.com/Scientific-Programming/src/matrices/unaugmented.dat), which
-contains a matrix that has one set of solutions and is styled in a way as to
+https://github.com/mjsir911/Scientific-Programming/src/matrices/unaugmented.dat),
+which contains a matrix that has one set of solutions and is styled in a way as
+to
 pose a challenge to be converted to python(not really though).
 
 The rules for the matrices dat files are as follows:
