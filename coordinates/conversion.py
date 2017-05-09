@@ -41,6 +41,7 @@ def pol2cart(polar_coordinate):
     x = r * math.cos(t)
     y = r * math.sin(t)
     return x, y
+    #return tuple(r * trf(t) for trf in (math.cos, math.sin)) # lol
 
 if __name__ == '__main__':
     import doctest
