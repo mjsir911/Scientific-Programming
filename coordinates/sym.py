@@ -19,11 +19,6 @@ def symcoords(func):
     func.__globals__['math'] = sympy # amazing that i can do this
     @functools.wraps(func)
     def wrapper(coord):
-        coord = list(coord)
-        for i, dim in enumerate(coord):
-            elif isinstance(dim, int):
-                coord[i] = sympy.Number(dim)
-            else:
-                coord[i] = sympy.sympify(dim)
+        coord = sympy.sympify(str(coord))
         return func(coord)
     return wrapper
