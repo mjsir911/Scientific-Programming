@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import sympy
+import functools
+
 __appname__     = ""
 __author__      = "Marco Sirabella"
 __copyright__   = ""
@@ -13,9 +16,7 @@ __status__      = "Prototype"  # "Prototype", "Development" or "Production"
 __module__      = ""
 
 def symcoords(func):
-    import sympy
-    import functools
-    func.__globals__['math'] = sympy
+    func.__globals__['math'] = sympy # amazing that i can do this
     @functools.wraps(func)
     def wrapper(coord):
         coord = list(coord)
