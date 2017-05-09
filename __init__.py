@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from .src import *
-del src
+__all__ = ['gaussjordan', 'matrices']
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
@@ -14,3 +13,6 @@ __maintainers__ = "Marco Sirabella"
 __email__       = "msirabel@gmail.com"
 __status__      = "Prototype"  # "Prototype", "Development" or "Production"
 __module__      = ""
+
+if __name__ == 'src':
+    from . import *
