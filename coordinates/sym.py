@@ -20,10 +20,9 @@ def symcoords(func):
     def wrapper(coord):
         coord = list(coord)
         for i, dim in enumerate(coord):
-            if isinstance(dim, str):
-                coord[i] = sympy.sympify(dim)
-                #return tuple(sympy.sympify(str(x)) for x in results)
             elif isinstance(dim, int):
                 coord[i] = sympy.Number(dim)
+            else:
+                coord[i] = sympy.sympify(dim)
         return func(coord)
     return wrapper
