@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import math
-from sym import symcoords
+from .sym import symcoords
 
 __appname__     = ""
 __author__      = "Marco Sirabella"
@@ -35,11 +35,14 @@ def pol2cart(polar_coordinate):
       (-3, 0)
       >>> pol2cart((-10, 'pi/6'))
       (-5*sqrt(3), -5)
+      >>> pol2cart(('1', '2'))
 
     """
     r, t = polar_coordinate
     x = r * math.cos(t)
     y = r * math.sin(t)
+    #from .. import geometry
+    #x, y = r * geometry.Vector(math.cos(t), math.sin(t))
     return x, y
     #return tuple(r * trf(t) for trf in (math.cos, math.sin)) # lol
 
