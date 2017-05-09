@@ -19,6 +19,6 @@ def symcoords(func):
     func.__globals__['math'] = sympy # amazing that i can do this
     @functools.wraps(func)
     def wrapper(coord):
-        coord = sympy.sympify(str(coord))
+        coord = tuple(sympy.sympify(str(c)) for c in coord)
         return func(coord)
     return wrapper
