@@ -41,7 +41,7 @@ def get_xterm(p, i):
     if exp == 0:
         return ''
     return 'x^{0}'.format(exp)
-    
+
 
 def poly_to_str(p):
     """
@@ -81,8 +81,14 @@ def add_polys(p1, p2):
     p3 = []
     for i in range(len(p1)):
         p3.append(p1[i] + p2[i])
-    
+
     return p3
+
+def mul_polys(p1, p2):
+    """
+      >>> mul_polys((4, -5), (2, 3, -6))
+      (8, 2, -39, 30)
+    """
 
 if __name__ == '__main__':
     import doctest
